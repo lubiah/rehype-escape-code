@@ -1,0 +1,19 @@
+{
+  "name": "@lubiah/rehype-escape-code",
+  "version": "0.0.2",
+  "description": "Escapes {}<> and replaces it with it's html entities",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Lucretius Biah",
+    "url": "https://www.lubiah.com"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "unist-util-visit": "^5.0.0"
+  }
+}
