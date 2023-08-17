@@ -1,6 +1,9 @@
 {
   "name": "@lubiah/rehype-escape-code",
   "version": "0.0.3",
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "Escapes {}<> and replaces it with it's html entities",
   "main": "index.js",
   "type": "module",
