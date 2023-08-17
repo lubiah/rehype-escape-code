@@ -1,4 +1,4 @@
-import { SKIP, visit } from "unist-util-visit";
+import { visitParents, SKIP } from "unist-util-visit-parents";
 
 const htmlEntities = str => 
   str.replace(/([<>{}])/g, match => ({ 
@@ -9,11 +9,13 @@ const htmlEntities = str =>
   }[match]));
 
 const plugin = () => tree => {
-    visit(tree, {type: "text"}, (node,index,parent) => {
-        parent.children[index] = { type: "text", value: htmlEntities(node.value)}
+    visitParents(tree, {type: "text"}, (node,ancestors) => {
+      if (!ancestors.some(x => x.tagName === "code")) return;
+        const parent = ancestors.at(-1);
+        const childIndex = parent.children.findIndex(x => x === node);
+        parent.children[childIndex] = { type: "text", value: htmlEntities(node.value)}
         return SKIP;
-        // let escaped = htmlEntities(toText(node, { whitespace: "pre"}));
-        // parent.children[index] = { type: "text", value: escaped}
+      
     })
 }
 

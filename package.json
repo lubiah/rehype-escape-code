@@ -1,6 +1,6 @@
 {
   "name": "@lubiah/rehype-escape-code",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Escapes {}<> and replaces it with it's html entities",
   "main": "index.js",
   "type": "module",
@@ -14,6 +14,6 @@
   },
   "license": "ISC",
   "dependencies": {
-    "unist-util-visit": "^5.0.0"
+    "unist-util-visit-parents": "^6.0.1"
   }
 }
